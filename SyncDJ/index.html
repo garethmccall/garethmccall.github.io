@@ -1,0 +1,374 @@
+<title>Sync DJ — Privacy Policy</title>
+<style>
+  :root {
+    --paper: #f1f0ec;
+    --paper-alt: #e9e7e1;
+    --ink: #17181a;
+    --ink-soft: #55585e;
+    --ink-faint: #8a8d92;
+    --line: #d9d7d0;
+    --accent: #2a5fd1;
+    --accent-soft: #e9eefc;
+    --surface: #ffffff;
+    --ok: #2f8a5c;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #131315;
+      --paper-alt: #19191c;
+      --ink: #ecedee;
+      --ink-soft: #9da0a7;
+      --ink-faint: #6b6e74;
+      --line: #2b2c2f;
+      --accent: #7ea2f6;
+      --accent-soft: #1c2740;
+      --surface: #1b1c1f;
+      --ok: #57c088;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #131315;
+    --paper-alt: #19191c;
+    --ink: #ecedee;
+    --ink-soft: #9da0a7;
+    --ink-faint: #6b6e74;
+    --line: #2b2c2f;
+    --accent: #7ea2f6;
+    --accent-soft: #1c2740;
+    --surface: #1b1c1f;
+    --ok: #57c088;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 20px 96px;
+  }
+
+  .sheet {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  /* ---- nameplate header ---- */
+
+  header.nameplate {
+    padding-top: 64px;
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+
+  .eyebrow .disc {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at center, var(--paper) 0 2px, transparent 2.5px),
+      repeating-radial-gradient(circle at center, var(--ink-faint) 0 0.6px, transparent 0.6px 2.4px);
+    flex: none;
+  }
+
+  h1 {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+
+  .dek {
+    color: var(--ink-soft);
+    font-size: 16px;
+    max-width: 52ch;
+    margin: 0 0 22px;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    font-size: 12px;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+
+  .meta-row span b {
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  /* ---- summary spec sheet ---- */
+
+  .specsheet {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .specsheet-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .specsheet-head h2 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--ink-soft);
+  }
+
+  .specsheet-head .verdict {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ok);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .specsheet-head .verdict::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ok);
+  }
+
+  .spec-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 16px;
+    align-items: start;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .spec-row:last-child { border-bottom: none; }
+
+  .spec-row .label {
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .spec-row .note {
+    grid-column: 1;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-top: 2px;
+  }
+
+  .spec-row .value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+    height: fit-content;
+  }
+
+  .value.none {
+    color: var(--ok);
+    background: color-mix(in srgb, var(--ok) 14%, transparent);
+  }
+
+  .value.local {
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  /* ---- prose ---- */
+
+  section.doc {
+    margin-bottom: 36px;
+  }
+
+  section.doc h2 {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    font-weight: 400;
+    font-size: 21px;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+
+  section.doc p, section.doc li {
+    max-width: 66ch;
+    color: var(--ink-soft);
+    font-size: 15.5px;
+  }
+
+  section.doc p { margin: 0 0 12px; }
+
+  section.doc ul {
+    margin: 0 0 12px;
+    padding-left: 20px;
+  }
+
+  section.doc li { margin-bottom: 6px; }
+
+  section.doc strong { color: var(--ink); font-weight: 600; }
+
+  section.doc code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.92em;
+    background: var(--paper-alt);
+    padding: 0.1em 0.4em;
+    border-radius: 5px;
+    color: var(--ink);
+  }
+
+  .rule {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 44px 0 36px;
+  }
+
+  footer {
+    font-size: 13px;
+    color: var(--ink-faint);
+    padding-top: 8px;
+  }
+
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  footer .contact {
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .sheet { animation: rise 0.5s ease-out both; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="nameplate">
+    <div class="eyebrow"><span class="disc"></span> Sync DJ · Privacy Policy</div>
+    <h1>Privacy Policy</h1>
+    <p class="dek">Sync DJ plays audio in sync across devices using each device's own clock. It doesn't have a server, because it doesn't need one — and that shapes everything below.</p>
+    <div class="meta-row">
+      <span><b>Effective</b> August 8, 2026</span>
+      <span><b>Applies to</b> Sync DJ for iOS</span>
+      <span><b>Accounts required</b> none</span>
+    </div>
+  </header>
+
+  <div class="specsheet">
+    <div class="specsheet-head">
+      <h2>Data Collection Summary</h2>
+      <div class="verdict">nothing leaves your device</div>
+    </div>
+
+    <div class="spec-row">
+      <div><div class="label">Account &amp; identity</div><div class="note">No sign-up, login, name, or email is ever requested.</div></div>
+      <div class="value none">NOT COLLECTED</div>
+    </div>
+    <div class="spec-row">
+      <div><div class="label">Usage analytics &amp; tracking</div><div class="note">No analytics SDKs, no crash reporters, no ad networks.</div></div>
+      <div class="value none">NOT COLLECTED</div>
+    </div>
+    <div class="spec-row">
+      <div><div class="label">Network activity</div><div class="note">Sync DJ makes no network requests of its own.</div></div>
+      <div class="value none">NONE</div>
+    </div>
+    <div class="spec-row">
+      <div><div class="label">Microphone &amp; camera</div><div class="note">Not accessed. QR codes are generated on-screen for others to scan with their own camera app.</div></div>
+      <div class="value none">NOT USED</div>
+    </div>
+    <div class="spec-row">
+      <div><div class="label">Location &amp; contacts</div><div class="note">Not requested, not read.</div></div>
+      <div class="value none">NOT USED</div>
+    </div>
+    <div class="spec-row">
+      <div><div class="label">Start time, sync offset, file name</div><div class="note">Saved in on-device settings storage (iOS <code>UserDefaults</code>). Never transmitted anywhere.</div></div>
+      <div class="value local">ON-DEVICE ONLY</div>
+    </div>
+    <div class="spec-row">
+      <div><div class="label">Your audio file</div><div class="note">Accessed locally to play it. The file itself is never read into Sync DJ's storage, copied, or uploaded.</div></div>
+      <div class="value local">ON-DEVICE ONLY</div>
+    </div>
+  </div>
+
+  <section class="doc">
+    <h2>How syncing works without a server</h2>
+    <p>Sync DJ keeps devices in time by agreeing on a shared start time, then having each device independently calculate its own playback position from the current time. There's no live connection between devices during playback — which also means there's nothing for Sync DJ to see, log, or relay.</p>
+  </section>
+
+  <section class="doc">
+    <h2>What's stored, and where</h2>
+    <p>Three things are saved to your device's local settings storage so the app remembers your setup between launches:</p>
+    <ul>
+      <li>The scheduled start time you've set</li>
+      <li>Your sync offset adjustment (used to correct for speaker distance or device latency)</li>
+      <li>The file name of your chosen audio track</li>
+    </ul>
+    <p>Sync DJ also keeps a security-scoped bookmark — an iOS mechanism for remembering which file you picked — so it can reopen that file the next time you launch the app, without asking you to re-select it. This bookmark, like everything above, stays in your device's local storage. None of it is sent to us, because we don't operate any server to send it to.</p>
+  </section>
+
+  <section class="doc">
+    <h2>Sharing a session</h2>
+    <p>When you share a start time — by copying a link, using the iOS share sheet, or showing a QR code — that link contains only the start time and (optionally) the file name you're using. Sync DJ builds this link entirely on your device and hands it to whatever share method <em>you</em> choose (Messages, AirDrop, email, or otherwise). We never see it, receive it, or store a record of it.</p>
+  </section>
+
+  <section class="doc">
+    <h2>Background audio</h2>
+    <p>Sync DJ uses iOS's background audio capability so playback keeps running when your screen is locked or you switch apps — the same way any music app does. This permission is used solely for continuous playback and involves no data collection.</p>
+  </section>
+
+  <section class="doc">
+    <h2>Children's privacy</h2>
+    <p>Sync DJ is not directed at children and collects no personal information from anyone, regardless of age.</p>
+  </section>
+
+  <section class="doc">
+    <h2>Changes to this policy</h2>
+    <p>If this policy ever changes, the effective date above will be updated. Given that Sync DJ collects nothing today, we don't expect much to change — but if the app's data practices ever do, this page will reflect it before that update ships.</p>
+  </section>
+
+  <hr class="rule">
+
+  <footer>
+    <div class="contact">Questions about this policy? <a href="mailto:rgarethmccall@gmail.com">rgarethmccall@gmail.com</a></div>
+    <div>Sync DJ is developed by Gareth McCall.</div>
+  </footer>
+
+</div>
