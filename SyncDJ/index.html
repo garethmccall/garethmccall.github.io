@@ -284,9 +284,9 @@
   <header class="nameplate">
     <div class="eyebrow"><span class="disc"></span> Sync DJ · Privacy Policy</div>
     <h1>Privacy Policy</h1>
-    <p class="dek">Sync DJ plays audio in sync across devices using each device's own clock. It doesn't have a server, because it doesn't need one — and that shapes everything below.</p>
+    <p class="dek">Sync DJ plays audio in sync across devices. It doesn't have a server, doesn't collect data, and doesn't track you — and that shapes everything below.</p>
     <div class="meta-row">
-      <span><b>Effective</b> August 8, 2026</span>
+      <span><b>Effective</b> September 11, 2026</span>
       <span><b>Applies to</b> Sync DJ for iOS</span>
       <span><b>Accounts required</b> none</span>
     </div>
@@ -295,7 +295,7 @@
   <div class="specsheet">
     <div class="specsheet-head">
       <h2>Data Collection Summary</h2>
-      <div class="verdict">nothing leaves your device</div>
+      <div class="verdict">no personal data collected</div>
     </div>
 
     <div class="spec-row">
@@ -307,11 +307,11 @@
       <div class="value none">NOT COLLECTED</div>
     </div>
     <div class="spec-row">
-      <div><div class="label">Network activity</div><div class="note">Sync DJ makes no network requests of its own.</div></div>
-      <div class="value none">NONE</div>
+      <div><div class="label">Network activity</div><div class="note">One optional NTP time-check to <code>time.apple.com</code> (a single UDP packet containing no user data). Can be toggled off.</div></div>
+      <div class="value local">NTP ONLY</div>
     </div>
     <div class="spec-row">
-      <div><div class="label">Microphone &amp; camera</div><div class="note">Not accessed. QR codes are generated on-screen for others to scan with their own camera app.</div></div>
+      <div><div class="label">Microphone &amp; camera</div><div class="note">Not accessed, not requested.</div></div>
       <div class="value none">NOT USED</div>
     </div>
     <div class="spec-row">
@@ -319,7 +319,7 @@
       <div class="value none">NOT USED</div>
     </div>
     <div class="spec-row">
-      <div><div class="label">Start time, sync offset, file name</div><div class="note">Saved in on-device settings storage (iOS <code>UserDefaults</code>). Never transmitted anywhere.</div></div>
+      <div><div class="label">Settings &amp; preferences</div><div class="note">Start time, file name, NTP clock offset, and your chosen color theme. Saved in on-device settings storage (iOS <code>UserDefaults</code>). Never transmitted anywhere.</div></div>
       <div class="value local">ON-DEVICE ONLY</div>
     </div>
     <div class="spec-row">
@@ -331,22 +331,25 @@
   <section class="doc">
     <h2>How syncing works without a server</h2>
     <p>Sync DJ keeps devices in time by agreeing on a shared start time, then having each device independently calculate its own playback position from the current time. There's no live connection between devices during playback — which also means there's nothing for Sync DJ to see, log, or relay.</p>
+    <p>To correct for differences between device clocks, Sync DJ can optionally query Apple's public NTP server (<code>time.apple.com</code>) to measure the offset between the device clock and network time. This is a single UDP packet containing only timestamp fields — no user data, device identifiers, or app information is included. The feature is on by default and can be toggled off in the Drop Time panel, in which case no network requests are made at all.</p>
   </section>
 
   <section class="doc">
     <h2>What's stored, and where</h2>
-    <p>Three things are saved to your device's local settings storage so the app remembers your setup between launches:</p>
+    <p>A handful of settings are saved to your device's local settings storage (iOS <code>UserDefaults</code>) so the app remembers your setup between launches:</p>
     <ul>
       <li>The scheduled start time you've set</li>
-      <li>Your sync offset adjustment (used to correct for speaker distance or device latency)</li>
       <li>The file name of your chosen audio track</li>
+      <li>The NTP clock offset and when it was last measured (so the correction survives an offline relaunch)</li>
+      <li>Whether internet time sync is enabled</li>
+      <li>Your chosen color theme</li>
     </ul>
-    <p>Sync DJ also keeps a security-scoped bookmark — an iOS mechanism for remembering which file you picked — so it can reopen that file the next time you launch the app, without asking you to re-select it. This bookmark, like everything above, stays in your device's local storage. None of it is sent to us, because we don't operate any server to send it to.</p>
+    <p>Sync DJ also keeps a security-scoped bookmark — an iOS mechanism for remembering which file you picked — so it can reopen that file the next time you launch the app, without asking you to re-select it. This bookmark, like everything above, stays in your device's local storage. None of it is sent anywhere.</p>
   </section>
 
   <section class="doc">
     <h2>Sharing a session</h2>
-    <p>When you share a start time — by copying a link, using the iOS share sheet, or showing a QR code — that link contains only the start time and (optionally) the file name you're using. Sync DJ builds this link entirely on your device and hands it to whatever share method <em>you</em> choose (Messages, AirDrop, email, or otherwise). We never see it, receive it, or store a record of it.</p>
+    <p>When you share a start time — by copying a <code>syncdj://</code> link or using the iOS share sheet — that link contains only the start time and (optionally) the file name you're using. Sync DJ builds this link entirely on your device and hands it to whatever share method <em>you</em> choose (Messages, AirDrop, email, or otherwise). We never see it, receive it, or store a record of it.</p>
   </section>
 
   <section class="doc">
